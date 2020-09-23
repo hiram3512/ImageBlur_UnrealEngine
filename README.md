@@ -60,6 +60,8 @@ Create dynamic material and set image brush:
 ```
 
 ### Finally
-![image](others/8uKWP0cHSe.png)![image](others/OLHLlkfwjw.png)![image](others/8ibAuJnGQk.png)
+![image](others/8uKWP0cHSe.png)![image](others/krUbeQgVEv.png)
+![image](others/OLHLlkfwjw.png)![image](others/mfaAfhalFC.png)
+![image](others/FHJBTcjr0X.png)![image](others/0eUUTMEiZf.png)
 ---------------
 Support: hiramtan@qq.com
