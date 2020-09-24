@@ -5,20 +5,18 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/Image.h"
-#include "TestUI.generated.h"
+#include "Test01.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class UNREAL_API UTestUI : public UUserWidget
+class UNREAL_API UTest01 : public UUserWidget
 {
 	GENERATED_BODY()
-
-
 public:
 	UPROPERTY(BlueprintReadWrite, Meta = (BindWidget))
-	UImage* TestImage;
+		UImage* TestImage;
 
 	virtual void NativeOnInitialized() override;
 };
