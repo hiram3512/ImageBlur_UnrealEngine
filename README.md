@@ -8,7 +8,7 @@ Unreal build-in Background Blur can't achieve the effect we want, so write this 
 
 ### How to do this
 - Create UI material
-- Write some shader code to process image pixels
+- Write shader code to process image pixels
 - Create dynamic material at runtime
 - Modify paramater of this dynamic material
 - Create slate brush and use this dynamic material
@@ -22,20 +22,25 @@ Create UI material:
 Shader in custom node is:
 ``` c++
 float3 blur = Texture2DSample(Tex, TexSampler, UV);
-if(Rate>0&&Rate<1)
+if(Rate > 0 && Rate < 1)
 {
     float2 dim;
     Tex.GetDimensions(dim.x, dim.y);
     float radius = Rate*dim.x;
+    int count = 0;
     for (int i = -radius; i < radius; i++)
     {
         for(int j=-radius;j<radius;j++)
         {
             float2 uvOffset = UV+float2(i/dim.x,j/dim.y);
-            blur += Texture2DSample(Tex, TexSampler,uvOffset);
+            if(uvOffset.x>0&&uvOffset.y>0&&uvOffset.x<dim.x&&uvOffset.y<dim.y)
+            {
+                count+=1;
+                blur += Texture2DSample(Tex, TexSampler,uvOffset);
+            }
         }
     }
-    blur/=(2*radius*2*radius);
+    blur/=count;
 }
 return blur;
 ```
